@@ -3,9 +3,8 @@
 set -e
 
 # COMPILE: un-comment below to build the binaries
-#echo "-----> nginx-buildpack-ssl: Building nginx"
-#sh scripts/build_nginx.sh $1
-pwd
+echo "-----> nginx-buildpack-ssl: Building nginx"
+sh scripts/build_nginx.sh $1
 echo "-----> nginx-buildpack-ssl: Copying nginx"
 mkdir -p "$1/bin/"
 cp -f "bin/nginx-$STACK" "$1/bin/nginx"
