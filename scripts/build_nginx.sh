@@ -16,7 +16,7 @@
 #
 # Inputs: $1 should be the Heroku build directory.
 
-NGINX_VERSION=${NGINX_VERSION-1.14.0}
+NGINX_VERSION=${NGINX_VERSION-1.18.0}
 NPS_VERSION=${NPS_VERSION-1.13.35.2}
 
 NGINX_TARBALL_URL=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
