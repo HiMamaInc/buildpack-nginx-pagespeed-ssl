@@ -5,10 +5,10 @@ set -e
 # COMPILE: un-comment below to build the binaries
 echo "-----> nginx-buildpack-ssl: Building nginx"
 sh scripts/build_nginx.sh $1
-cp -f "$1/nginx/sbin/nginx" "bin/nginx-${STACK}"
+cp -f "$1/nginx/sbin/nginx" "bin/nginx-$STACK"
 echo "-----> nginx-buildpack-ssl: Copying nginx"
 mkdir -p "$1/bin/"
-cp -f "bin/nginx-${STACK}" "$1/bin/nginx"
+cp -f "bin/nginx-$STACK" "$1/bin/nginx"
 NGINX_VERSION=$(./bin/nginx-$STACK -V 2>&1 | head -1 | awk '{ print $NF }')
 echo "-----> nginx-buildpack-ssl: Installed ${NGINX_VERSION} to app/bin"
 echo "       $(./bin/nginx-$STACK -V)"
