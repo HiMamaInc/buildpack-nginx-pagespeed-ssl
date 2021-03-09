@@ -6,6 +6,7 @@ set -e
 echo "-----> nginx-buildpack-ssl: Building nginx"
 sh scripts/build_nginx.sh $1
 echo "-----> nginx-buildpack-ssl: Copying nginx"
+pwd
 mkdir -p "$1/bin/"
 cp -f "$1/nginx/sbin/nginx" "$1/bin/nginx"
 NGINX_VERSION=$(./bin/nginx-$STACK -V 2>&1 | head -1 | awk '{ print $NF }')

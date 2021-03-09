@@ -58,3 +58,4 @@ echo "Compiling nginx"
   make install
   touch ${DEST_DIR}/compiled-nginx.txt
 )
+pwd
