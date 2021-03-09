@@ -20,7 +20,7 @@ NGINX_VERSION=${NGINX_VERSION-1.18.0}
 NPS_VERSION=${NPS_VERSION-1.13.35.2}
 
 NGINX_TARBALL_URL=http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
-NPS_URL=https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}-beta.tar.gz
+NPS_URL=https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}-stable.tar.gz
 
 DEST_DIR=$1
 TMP_DIR=${DEST_DIR}/compile-nginx
@@ -35,7 +35,7 @@ curl -L $NGINX_TARBALL_URL | tar xz
 echo "Downloading $NPS_URL"
 (
   cd nginx-${NGINX_VERSION} && curl -L $NPS_URL | tar xz
-  cd incubator-pagespeed-ngx-${NPS_VERSION}-beta/
+  cd incubator-pagespeed-ngx-${NPS_VERSION}-stable/
   PSOL_URL=https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}-x64.tar.gz
   [ -e scripts/format_binary_url.sh ] && PSOL_URL=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
   echo "Downloading $PSOL_URL"
@@ -49,7 +49,7 @@ echo "Compiling nginx"
   cd nginx-${NGINX_VERSION}
   ./configure \
     --prefix=${DEST_DIR}/nginx \
-    --add-module=${TMP_DIR}/nginx-${NGINX_VERSION}/incubator-pagespeed-ngx-${NPS_VERSION}-beta \
+    --add-module=${TMP_DIR}/nginx-${NGINX_VERSION}/incubator-pagespeed-ngx-${NPS_VERSION}-stable \
     --with-http_gzip_static_module \
     --with-http_ssl_module \
     --with-cc-opt='-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2' \
