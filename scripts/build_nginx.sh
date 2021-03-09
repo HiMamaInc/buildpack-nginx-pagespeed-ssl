@@ -60,4 +60,4 @@ echo "Compiling nginx"
 )
 
 echo "Copying compiled source to correct location"
-cp ${DEST_DIR}/nginx/sbin/nginx /app/bin/nginx-${STACK}
+cp ${DEST_DIR}/nginx/sbin/nginx bin/nginx-${STACK}
