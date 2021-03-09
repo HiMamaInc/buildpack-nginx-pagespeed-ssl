@@ -11,7 +11,7 @@
 # Once this runs and compiles, the binary is available at ~/nginx/bin/nginx
 # The compile phase ends with a new "slug", which will have the binary available.
 # Run a Heroku console to get a shell to a slug, and then download or transfer
-# the binary out. Next, copy this binary back into the repo, and uncomment
+# the binary out. Next, copy this binary back into the repo, and comment
 # the changes to bin/compile.
 #
 # Inputs: $1 should be the Heroku build directory.
