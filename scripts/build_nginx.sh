@@ -58,3 +58,6 @@ echo "Compiling nginx"
   make install
   touch ${DEST_DIR}/compiled-nginx.txt
 )
+
+echo "Copying compiled source to correct location"
+cp ${DEST_DIR}/nginx/sbin/nginx /app/bin/nginx-${STACK}
